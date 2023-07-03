@@ -1,4 +1,4 @@
-# lifes
+# Life Savers Project
 
 A new Flutter project.
 
