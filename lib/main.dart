@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lifes/ui/LandingPage.dart';
+import 'package:lifes/ui/AED.dart';
 
 void main() {
   runApp(const MyApp());
@@ -90,9 +91,8 @@ class _MyHomePageState extends State<MyHomePage> {
             const SizedBox(
               height: 100.0,
               width: 100.0,
-              child: CircularProgressIndicator(
-                strokeWidth: 10,
-              ),
+
+
             ),
             MaterialButton(onPressed: () {
               Navigator.push(

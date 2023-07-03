@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lifes/widgets/stepWidget.dart';
+import 'package:lifes/ui/AED.dart';
+import 'package:lifes/ui/ChildCPR.dart';
+import 'package:lifes/ui/AdultCPR.dart';
 
 class landingPage extends StatefulWidget {
   const landingPage({super.key});
@@ -24,9 +27,23 @@ class _landingPage extends State<landingPage> {
               width: 500,
             ),
             MaterialButton(onPressed: () {}, child: Text("Contact Emergency Services"), color:Colors.red),
-            MaterialButton(onPressed: () {}, child: Text("Use of AED"), color:Colors.blue),
-            MaterialButton(onPressed: () {}, child: Text("Child CPR"), color:Colors.blue),
-            MaterialButton(onPressed: () {}, child: Text("Adult CPR"), color:Colors.blue),
+            MaterialButton(onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AED())
+                 );
+              }, child: Text("Use of AED"), color:Colors.blue),
+            MaterialButton(onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ChildCPR())
+                 );
+              }, child: Text("Child CPR"), color:Colors.blue),
+            MaterialButton(onPressed: () {Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AdultCPR())
+                );
+              }, child: Text("Adult CPR"), color:Colors.blue),
 
           ],
         ));
