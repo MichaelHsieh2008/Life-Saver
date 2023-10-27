@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:lifes/widgets/stepWidget.dart';
-import 'package:lifes/ui/AED.dart';
-import 'package:lifes/ui/ChildCPR.dart';
-import 'package:lifes/ui/AdultCPR.dart';
+import 'package:LifeSavers/widgets/stepWidget.dart';
+import 'package:LifeSavers/ui/AED.dart';
+import 'package:LifeSavers/ui/ChildCPR.dart' as ChildCPRPage;
+import 'package:LifeSavers/ui/AdultCPR.dart' as AdultCPRPage;
+import 'package:LifeSavers/ui/AEDInfo.dart';
 
 class AED extends StatelessWidget {
   @override
@@ -11,73 +12,63 @@ class AED extends StatelessWidget {
       appBar: AppBar(
         title: Text('Use of AED Steps'),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            padding: EdgeInsets.all(16),
-            child: Text(
-              'How To Use An AED',
+      body: Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              padding: EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'AED Information',
               style: TextStyle(
-                  fontSize: 50,
-                  fontWeight: FontWeight.bold
+                fontSize: 50,
+                fontWeight: FontWeight.bold,
               ),
             ),
-          ),
-          Center(
-            child: Text(' 1. Turn on AED '
-                '\n 2. Follow steps listed or played by the AED '
-                '\n 3. Continue to follow steps of AED until the person is responsive or emergency responders arrive',
-              style: TextStyle(fontSize: 24),
+            SizedBox(height: 15),
+            Center(
+              child: Text(
+                '   AEDs or Automatic External Defibrillators are lightweight portable devices used in emergency circumstances when the heart has a fatal rhythm.\n\n The AED gives a shock to the heart in order to attempt to return the heart to a normal rhythm.\n\nBelow are steps to use an AED for adults and children',
+                style: TextStyle(fontSize: 25,
+                fontFamily: 'ProximaNova'),
+                textAlign: TextAlign.left,
+
+              ),
             ),
-          ),
-          Center(
-            child: Column(
-              children: [
-                SizedBox(height:40),
-                SizedBox(
-                  width: 250,
-                  height: 80,
-                  child: MaterialButton(
+            Center(
+              child: Column(
+                children: [
+                  SizedBox(height: 60),
+                  SizedBox(
+                    width: 300,
+                    height: 120,
+                    child: MaterialButton(
                       onPressed: () {
                         Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => ChildCPR())
+                            MaterialPageRoute(builder: (context) => AEDInfo())
                         );
                       },
-                      child: Text("Child CPR",
-                      style: TextStyle(
+                      child: Text("Steps for AED",
+                        style: TextStyle(
                           fontSize: 35,
                         ),
                       ),
-                      color: Colors.blue
-                    ),
-                  ),
-                SizedBox(height:40),
-                SizedBox(
-                  width: 250,
-                  height: 80,
-                  child: MaterialButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => AdultCPR())
-                      );
-                    },
-                    child: Text("Adult CPR",
-                    style: TextStyle(
-                        fontSize: 35,
+                      color: Colors.blue,
                       ),
                     ),
-                    color: Colors.blue
+                  ],
                 ),
-                ),
-              ],
+              ),
+            ],
             ),
           ),
-        ],
-      ),
+          ]
+        )
+     )
     );
-    }
   }
-
+}

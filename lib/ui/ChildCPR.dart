@@ -1,123 +1,162 @@
 import 'package:flutter/material.dart';
-import 'package:lifes/widgets/stepWidget.dart';
-import 'package:lifes/ui/AED.dart';
-import 'package:lifes/ui/ChildCPR.dart';
-import 'package:lifes/ui/AdultCPR.dart';
+import 'package:LifeSavers/ui/AED.dart';
+import 'package:LifeSavers/ui/AdultCPR.dart';
+import 'package:LifeSavers/ui/ChildMain.dart';
+import 'package:LifeSavers/ui/InfantMain.dart';
 
 class ChildCPR extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Child CPR Steps'),
-      ),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'How to Perform Child CPR',
-              style: TextStyle(
-                fontSize: 50,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 16),
-            Center(
-              child: Text(
-                'If there is a pulse and visible breathing:',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            SizedBox(height: 16),
-            Row(
-              children: [
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        '1. Ensure the surrounding area is safe and check for responsiveness from the person',
-                        style: TextStyle(fontSize: 24),
-                      ),
-                      Text(
-                        '2. Shout for help and if possible contact emergency responders',
-                        style: TextStyle(fontSize: 24),
-                      ),
-                      Text(
-                        '3. If possible get an AED and/or emergency equipment',
-                        style: TextStyle(fontSize: 24),
-                      ),
-                      Text(
-                        '4. Look for breathing and pulse within 10 seconds',
-                        style: TextStyle(fontSize: 24),
-                      ),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'If there is a pulse, but no breathing:',
-                        style: TextStyle(fontSize: 24),
-                      ),
-                      Text(
-                        'Perform mouth-to-mouth resuscitation (1 breath every 2-3 seconds)',
-                        style: TextStyle(fontSize: 24),
-                      ),
-                      Text(
-                        'Check pulse every 2 minutes',
-                        style: TextStyle(fontSize: 24),
-                      ),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'If there is no pulse, start CPR',
-                        style: TextStyle(fontSize: 24),
-                      ),
-                      Text(
-                        'If there is no pulse and no breathing:',
-                        style: TextStyle(fontSize: 24),
-                      ),
-                      Text(
-                        'Start CPR',
-                        style: TextStyle(fontSize: 24),
-                      ),
-                      Text(
-                        'Perform chest compressions (slightly to the left of the victim’s chest)',
-                        style: TextStyle(fontSize: 24),
-                      ),
-                      Text(
-                        'Ensure the compressions push inwards approximately 1/3rd the chest depth or around 1-2 inches deep with one or two hands',
-                        style: TextStyle(fontSize: 24),
-                      ),
-                      Text(
-                        'Perform 15 chest compressions then two mouth-to-mouth breaths in cycles',
-                        style: TextStyle(fontSize: 24),
-                      ),
-                      Text(
-                        'Continue until emergency responders or AED arrives (refer to Use of AED steps) (link to AED use)',
-                        style: TextStyle(fontSize: 24),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ],
+        appBar: AppBar(
+          title: Text('Child CPR Steps'),
         ),
-      ),
-    );
+        body: SingleChildScrollView(
+            padding: EdgeInsets.all(16),
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'How to Perform Child CPR',
+                    style: TextStyle(
+                      fontSize: 50,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 16),
+                  Center(
+                    child: Text(
+                      'Child CPR is very different in comparison to Adult CPR. In this page, will contain links to infant (typically around less than a year old) and child CPR (between a year and 12 years old).',
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontFamily: 'ProximaNova'
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 30),
+                  Center(
+                    child: Text(
+                      'If the victim is an infant, see the article below:',
+                      style: TextStyle(
+                        fontSize: 27,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'ProximaNova'
+                      ),
+
+                    ),
+                  ),
+                  Center(
+                    child: Column(
+                      children: [
+                        SizedBox(height:15),
+                        SizedBox(
+                          width: 250,
+                          height: 80,
+                          child: MaterialButton(
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => InfantCPR())
+                                );
+                              },
+                              child: Text("Age < 1 year",
+                                style: TextStyle(
+                                  fontSize: 35,
+                                ),
+                              ),
+                              color: Colors.blue
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 30),
+                  Center(
+                    child: Text('If the victim is a child, see the article below:',
+                      style: TextStyle(
+                        fontSize: 27, fontWeight: FontWeight.bold,
+                        fontFamily: 'ProximaNova'
+                      ),
+                    ),
+                  ),
+                  Center(
+                    child: Column(
+                      children: [
+                        SizedBox(height:15),
+                        SizedBox(
+                          width: 250,
+                          height: 80,
+                          child: MaterialButton(
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => ChildMain())
+                                );
+                              },
+                              child: Text("Ages (1-12)",
+                                style: TextStyle(
+                                  fontSize: 35,
+                                ),
+                              ),
+                              color: Colors.blue
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Center(
+                      child: Column(
+                        children: [
+                          SizedBox(height:70),
+                          SizedBox(
+                            width: 300,
+                            height: 100,
+                            child: MaterialButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => AED())
+                                  );
+                                },
+                                child: Text("Use of AED",
+                                  style: TextStyle(
+                                    fontSize: 35,
+                                  ),
+                                ),
+                                color: Colors.blue
+                            ),
+                          ),
+                          SizedBox(height: 15),
+
+                          Center(
+                            child: Column(
+                                children: [
+                                  SizedBox(height:20),
+                                  SizedBox(
+                                    width: 300,
+                                    height: 100,
+                                    child: MaterialButton(
+                                        onPressed: () {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(builder: (context) => AdultCPR())
+                                          );
+                                        },
+                                        child: Text("Adult CPR",
+                                          style: TextStyle(
+                                            fontSize: 35,
+                                          ),
+                                        ),
+                                        color: Colors.blue
+                                    ),
+                                  ),
+
+                                ]
+                            ),
+                          ),
+                        ],
+                      ))
+                ])
+        ));
   }
 }

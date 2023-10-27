@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:lifes/ui/LandingPage.dart';
-import 'package:lifes/ui/AED.dart';
+import 'package:LifeSavers/ui/LandingPage.dart';
+import 'package:LifeSavers/ui/AED.dart';
+import 'package:LifeSavers/ui/AEDInfo.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -9,24 +11,14 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Life Savers CPR App',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Life Savers CPR App'),
     );
   }
 }
@@ -34,14 +26,6 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
 
   final String title;
 
@@ -54,55 +38,116 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _incrementCounter() {
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
       _counter++;
     });
   }
+  void _showDisclaimerDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Disclaimer'),
+          content: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget> [
+                Text("This app provides general information on CPR (Cardiopulmonary Resuscitation) based on guidelines, such as those from the American Heart Association's Basic Life Support (BLS). The information presented in this app is intended for educational and informational purposes only."
 
+                    "\n1. **Not a Substitute for Professional Training**: This app is not a substitute for professional CPR training or medical advice. It does not certify you as a CPR provider. Always seek proper training and certification from qualified instructors."
+
+                    "\n2. **Emergency Situations**: In a real-life emergency, immediately call your local emergency number (e.g., 911) and follow the guidance of trained professionals. CPR should only be administered by individuals with proper training and certification."
+
+                    "\n3. **Applicable Guidelines**: CPR guidelines may change over time. This app may not always reflect the most current guidelines or standards. It's essential to stay updated with the latest practices and guidelines for CPR."
+
+                    "\n4. **No Medical Diagnosis**: This app does not provide medical diagnosis or personalized medical advice. It does not replace consultation with healthcare professionals."
+
+                    "\n5. **Liability**: The creators of this app, its developers, and its content providers shall not be held liable for any actions taken or not taken based on the information provided in this app. Users are responsible for their decisions and actions in emergency situations."
+
+                    "\n6. **Accessibility**: This app aims to be accessible to all users. If you encounter accessibility issues or require accommodations, please contact us to help us improve the app's accessibility."
+
+                    "\nBy using this app, you acknowledge and agree to these terms. If you do not agree with these terms, please do not use this app."
+
+                    "\nRemember, in a medical emergency, always prioritize calling emergency services and seeking assistance from trained professionals. Proper CPR training is essential for effective response in emergencies.")
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+                },
+                  child: Text('Agree'),
+                ),
+              ],
+        );
+      },
+    );
+  }
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: Colors.blue, // Set the border color to blue.
+          width: 7.0, // Set the border width.
+        ),
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image(
-              image: AssetImage('assets/images/LifeSavers.png'),
-              width: 500,
-            ),
-            Padding(padding: EdgeInsets.all(5)),
-            const SizedBox(
-              height: 100.0,
-              width: 100.0,
-
-
-            ),
-            MaterialButton(onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => landingPage())
-              );
-            }, color: Colors.red, child: Text("Go (will be removed", style: TextStyle(color: Colors.white),),)
-          ],
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('Life Savers CPR App'),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image(
+                image: AssetImage('assets/images/LifeSavers.png'),
+                width: 500,
+              ),
+              Padding(padding: EdgeInsets.all(5)),
+              const SizedBox(
+                height: 5.0,
+                width: 50.0,
+              ),
+              Padding(
+                padding: EdgeInsets.only(bottom: 20.0),
+                child: SizedBox(
+                  width: 250,
+                  height: 80,
+                  child: SizedBox(
+                    width: 250,
+                    height: 80,
+                    child: MaterialButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => LandingPage()),
+                        );
+                      },
+                      color: Colors.red,
+                      child: Text(
+                        "Go",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 40,
+                          fontFamily: 'ProximaNova',
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  _showDisclaimerDialog(context);
+                },
+                child: Text('Disclaimer'),
+              ),
+            ],
+          ),
         ),
       ),
     );
-  }
-}
+  }}

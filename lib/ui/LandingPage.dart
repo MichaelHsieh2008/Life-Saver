@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:lifes/widgets/stepWidget.dart';
-import 'package:lifes/ui/AED.dart';
-import 'package:lifes/ui/ChildCPR.dart';
-import 'package:lifes/ui/AdultCPR.dart';
+import 'package:LifeSavers/ui/AED.dart';
+import 'package:LifeSavers/ui/ChildCPR.dart' as ChildCPRPage;
+import 'package:LifeSavers/ui/AdultCPR.dart' as AdultCPRPage;
+import 'package:LifeSavers/ui/Naloxone.dart';
 
-class landingPage extends StatefulWidget {
-  const landingPage({super.key});
+
+
+class LandingPage extends StatefulWidget {
+  const LandingPage({super.key});
 
   @override
-  State<landingPage> createState() => _landingPage();
+  State<LandingPage> createState() => LandingPageState();
 }
 
-class _landingPage extends State<landingPage> {
+class LandingPageState extends State<LandingPage> {
 
   @override
   Widget build(BuildContext context) {
@@ -21,31 +23,81 @@ class _landingPage extends State<landingPage> {
         ),
         body: ListView(
           children: [
-            // TODO brandon and michael work on this part
             Image(
               image: AssetImage('assets/images/LifeSavers.png'),
               width: 500,
             ),
-            MaterialButton(onPressed: () {}, child: Text("Contact Emergency Services"), color:Colors.red),
-            MaterialButton(onPressed: () {
+
+
+          SizedBox(
+          width: 250,
+          height: 65,
+          child: MaterialButton(onPressed: () {
               Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => AED())
                  );
-              }, child: Text("Use of AED"), color:Colors.blue),
-            MaterialButton(onPressed: () {
+              }, child: Text("Use of AED",
+                  style: TextStyle(
+                    fontSize: 32,
+                ),
+              ),
+              color:Colors.blue,
+              minWidth: 250
+            ),
+          ),
+          SizedBox(height:25),
+          SizedBox(
+            width: 250,
+            height: 65,
+            child: MaterialButton(onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => ChildCPR())
+                MaterialPageRoute(builder: (context) => ChildCPRPage.ChildCPR())
                  );
-              }, child: Text("Child CPR"), color:Colors.blue),
-            MaterialButton(onPressed: () {Navigator.push(
+              }, child: Text("Child CPR",
+              style: TextStyle(
+                fontSize: 32,
+                ),
+              ),
+              color:Colors.blue,
+              minWidth: 250
+            ),
+          ),
+          SizedBox(height:25),
+          SizedBox(
+            width: 250,
+            height: 65,
+              child: MaterialButton(onPressed: () {Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => AdultCPR())
-                );
-              }, child: Text("Adult CPR"), color:Colors.blue),
-
-          ],
-        ));
+                MaterialPageRoute(builder: (context) => AdultCPRPage.AdultCPR())
+              );
+              }, child: Text("Adult CPR",
+                  style: TextStyle(
+                  fontSize: 32,
+                ),
+              ), color:Colors.blue,
+                minWidth: 250
+              ),
+          ),
+            SizedBox(height:25),
+            SizedBox(
+              width: 250,
+              height: 65,
+              child: MaterialButton(onPressed: () {Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Naloxone())
+              );
+              }, child: Text("Naloxone Use",
+                style: TextStyle(
+                  fontSize: 32,
+                ),
+              ), color:Colors.blue,
+                  minWidth: 250
+              ),
+            ),
+        ],
+      )
+    );
   }
 }

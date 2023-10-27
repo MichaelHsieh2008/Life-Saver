@@ -1,5 +1,5 @@
-name: lifes
-description: A new Flutter project.
+name: LifeSavers
+description: An app to teach and inform everyone about the uses of CPR!
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -61,6 +61,19 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
      - assets/images/LifeSavers.png
+     - assets/images/CPRAdult Final.png
+     - assets/images/CPRChild Final.png
+     - assets/images/aedpower.png
+     - assets/images/AEDshock.png
+     - assets/images/Pulse.png
+     - assets/images/CPR Position.png
+     - assets/images/rescuebreathing.png
+     - assets/images/Child CPR Position.png
+     - assets/images/infantpulse.png
+     - assets/images/child rescue breaths.png
+     - assets/images/infantcpr.png
+     - assets/images/naloxone.png
+     - assets/images/emergency responders.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -73,11 +86,11 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
+
+  fonts:
+    - family: ProximaNova
+      fonts:
+        - asset: assets/fonts/Proxima Nova Font.otf
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:
