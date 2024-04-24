@@ -60,8 +60,8 @@ class AdultPNB extends StatelessWidget {
                         children: [
                           SizedBox(height:40),
                           SizedBox(
-                            width: 250,
-                            height: 80,
+                            width: 270,
+                            height: 90,
                             child: MaterialButton(
                                 onPressed: () {
                                   Navigator.push(

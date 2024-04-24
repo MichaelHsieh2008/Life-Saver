@@ -68,10 +68,7 @@ class Naloxone extends StatelessWidget {
                       child: Column(
                         children: [
                           SizedBox(height:40),
-                          SizedBox(
-                            width: 250,
-                            height: 80,
-                            child: MaterialButton(
+                          MaterialButton(
                                 onPressed: () {
                                   Navigator.push(
                                       context,
@@ -85,7 +82,6 @@ class Naloxone extends StatelessWidget {
                                 ),
                                 color: Colors.red
                             ),
-                          ),
                           Center(
                             child: Column(
                                 children: [

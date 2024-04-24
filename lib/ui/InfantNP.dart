@@ -102,8 +102,8 @@ class InfantNP extends StatelessWidget {
                         children: [
                           SizedBox(height:40),
                           SizedBox(
-                            width: 250,
-                            height: 80,
+                            width: 270,
+                            height: 90,
                             child: MaterialButton(
                                 onPressed: () {
                                   Navigator.push(
@@ -113,7 +113,7 @@ class InfantNP extends StatelessWidget {
                                 },
                                 child: Text("Pulse/No Breathing",
                                   style: TextStyle(
-                                    fontSize: 24,
+                                    fontSize: 25,
                                   ),
                                 ),
                                 color: Colors.red
@@ -124,8 +124,8 @@ class InfantNP extends StatelessWidget {
                                 children: [
                                   SizedBox(height:40),
                                   SizedBox(
-                                    width: 250,
-                                    height: 80,
+                                    width: 270,
+                                    height: 90,
                                     child: MaterialButton(
                                         onPressed: () {
                                           Navigator.push(
