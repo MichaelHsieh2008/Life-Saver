@@ -39,12 +39,10 @@ class ChildPVB extends StatelessWidget {
 
                   Center(
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           SizedBox(height:50),
-                          SizedBox(
-                            width: 250,
-                            height: 80,
-                            child: MaterialButton(
+                          MaterialButton(
                                 onPressed: () {
                                   Navigator.push(
                                       context,
@@ -58,7 +56,6 @@ class ChildPVB extends StatelessWidget {
                                 ),
                                 color: Colors.red
                             ),
-                          ),
                           Center(
                             child: Column(
                                 children: [

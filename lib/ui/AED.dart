@@ -13,8 +13,7 @@ class AED extends StatelessWidget {
         title: Text('Use of AED Steps'),
       ),
       body: Center(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+        child: ListView(
           children: [
             Container(
               padding: EdgeInsets.all(16),
